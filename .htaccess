@@ -32,6 +32,9 @@ RedirectMatch 404 /\.git
 <Files "checkout.php">
   Require all granted
 </Files>
+<Files "diag.php">
+  Require all granted
+</Files>
 
 # ---- security headers
 <IfModule mod_headers.c>
