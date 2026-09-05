@@ -41,15 +41,16 @@ if ($key === '') fail('The store is not connected yet.', 503);
 
 [$productId, $qty] = $PACKS[$pack];
 $body = json_encode(['username' => $user, 'cartItems' => json_encode([['id' => $productId, 'quantity' => $qty]])]);
-$ch = curl_init('https://vanguard.teamgames.io/api/v2/client/global/checkout/complete');
+$ch = curl_init('https://teamgames.io/api/v2/client/global/checkout/complete');
 curl_setopt_array($ch, [
   CURLOPT_POST => true, CURLOPT_POSTFIELDS => $body, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 15,
   CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Authorization: ' . base64_encode($key), 'x-api-key: ' . $key],
 ]);
 $res = curl_exec($ch); $http = curl_getinfo($ch, CURLINFO_RESPONSE_CODE); curl_close($ch);
 $j = is_string($res) ? json_decode($res, true) : null;
-if (!is_array($j) || ($j['status'] ?? '') !== 'SUCCESS') {
-  $why = is_array($j) ? (string)($j['message'] ?? $j['status'] ?? 'error') : ('http ' . $http);
+$ok = is_array($j) && (($j['status'] ?? '') === 'SUCCESS' || !empty($j['redirect']) || !empty($j['isFree']));
+if (!$ok) {
+  $why = is_array($j) ? (string)($j['message'] ?? $j['status'] ?? $j['code'] ?? 'error') : ('http ' . $http);
   fail('TeamGames could not start this checkout (' . $why . '). Try again in a moment.', 502);
 }
 if (!empty($j['isFree'])) { header('Location: /store/?done=1', true, 303); exit; }
