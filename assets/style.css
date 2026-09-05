@@ -71,7 +71,7 @@ p { margin: 0 0 14px; }
 .btn.primary:hover { background: linear-gradient(180deg, #e4d3ff, #b58cff); color: #0b0814; }
 .btn.disabled { opacity: .5; cursor: not-allowed; pointer-events: none; }
 .stats { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 34px; }
-.stat { padding: 10px 18px; border-radius: 10px; background: rgba(6,4,12,.7); border: 1px solid var(--edge); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.stat { padding: 10px 18px; border-radius: 999px; background: rgba(6,4,12,.7); border: 1px solid var(--edge); font-size: 12px; letter-spacing: .12em; text-transform: none; color: var(--text); font-size: 14px; letter-spacing: .02em; font-weight: 500; }
 .stat b { color: var(--gold); font-family: var(--display); margin-right: 6px; font-size: 14px; letter-spacing: .02em; }
 
 /* ---------- sections ---------- */
