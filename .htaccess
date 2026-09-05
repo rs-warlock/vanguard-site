@@ -16,7 +16,6 @@ RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # ---- store / vote live on TeamGames (they handle the checkout + toplists)
-Redirect 302 /vote https://vanguard.teamgames.io/vote
 Redirect 302 /hiscores https://vanguard.teamgames.io/hiscores
 
 # ---- block anything that should never be served
@@ -30,9 +29,6 @@ RedirectMatch 404 /\.git
   Require all denied
 </FilesMatch>
 <Files "checkout.php">
-  Require all granted
-</Files>
-<Files "diag.php">
   Require all granted
 </Files>
 

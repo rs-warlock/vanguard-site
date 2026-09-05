@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/vangwjtq/public_html
-    - /bin/cp -R index.html 404.html robots.txt sitemap.xml .htaccess assets play store $DEPLOYPATH/
+    - /bin/cp -R index.html 404.html robots.txt sitemap.xml .htaccess assets play store vote $DEPLOYPATH/
+    - /bin/rm -f $DEPLOYPATH/store/diag.php

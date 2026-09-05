@@ -164,3 +164,18 @@ footer a:hover { color: var(--bright); }
 .pack.best .btn { background: linear-gradient(180deg, #ffe08a, #e8c24a); border-color: #ffe08a; }
 .fine { margin-top: 22px; color: var(--dim); font-size: 13px; text-align: center; }
 @media (max-width: 720px) { .who { grid-template-columns: 1fr; } .who span { grid-column: 1; } }
+
+/* ---------- vote ---------- */
+.vote-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px; align-items: start; }
+.vote-main h2 { font-size: 22px; }
+.vote-side { display: grid; gap: 14px; }
+.vcard { padding: 20px 22px; border-radius: 12px; background: linear-gradient(180deg, rgba(28,22,48,.92), var(--card)); border: 1px solid var(--edge); box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+.vcard p { color: var(--dim); font-size: 13px; margin: 0; }
+.vcard-title { font-family: var(--display); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--nebula); margin-bottom: 10px; }
+.vlist { list-style: none; margin: 0; padding: 0; }
+.vlist li { display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-top: 1px solid rgba(47,38,80,.6); font-size: 13px; }
+.vlist li:first-child { border-top: 0; }
+.vlist span { color: var(--text); }
+.vlist em { font-style: normal; color: var(--gold); font-size: 12px; letter-spacing: .04em; }
+code { font-family: Consolas, monospace; font-size: 12px; padding: 2px 6px; border-radius: 6px; background: rgba(165,116,255,.12); color: var(--bright); border: 1px solid rgba(165,116,255,.3); }
+@media (max-width: 820px) { .vote-grid { grid-template-columns: 1fr; } }
