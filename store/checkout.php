@@ -20,7 +20,7 @@ $KEY_FILE = dirname(__DIR__, 2) . '/.vanguard/teamgames.key';
 function fail(string $msg, int $code = 400): void {
   http_response_code($code);
   header('Content-Type: text/html; charset=utf-8');
-  echo '<!doctype html><meta charset="utf-8"><title>Store</title><link rel="stylesheet" href="/assets/style.css?v=3">'
+  echo '<!doctype html><meta charset="utf-8"><title>Store</title><link rel="stylesheet" href="/assets/style.css?v=4">'
      . '<div class="wrap" style="padding:80px 20px;text-align:center"><h1 style="font-size:24px">Checkout unavailable</h1>'
      . '<p style="color:#8e82b0">' . htmlspecialchars($msg, ENT_QUOTES) . '</p><p><a class="btn" href="/store/">Back to the store</a></p></div>';
   exit;

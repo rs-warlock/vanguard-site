@@ -147,11 +147,11 @@ footer a:hover { color: var(--bright); }
 .who input:focus { border-color: var(--nebula); box-shadow: 0 0 0 3px rgba(165,116,255,.18); }
 .who span { grid-column: 2; color: var(--dim); font-size: 12px; }
 .packs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
-.pack { position: relative; overflow: hidden; text-align: center; padding: 28px 18px 22px; border-radius: 14px; border: 1px solid var(--edge); background: linear-gradient(180deg, rgba(28,22,48,.95), rgba(14,10,26,.95)); box-shadow: 0 14px 34px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04); transition: transform .2s, border-color .2s, box-shadow .2s; }
+.pack { position: relative; overflow: hidden; text-align: center; padding: 38px 18px 22px; border-radius: 14px; border: 1px solid var(--edge); background: linear-gradient(180deg, rgba(28,22,48,.95), rgba(14,10,26,.95)); box-shadow: 0 14px 34px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.04); transition: transform .2s, border-color .2s, box-shadow .2s; }
 .pack:hover { transform: translateY(-4px); border-color: var(--nebula); box-shadow: 0 18px 44px rgba(0,0,0,.6), 0 0 30px rgba(165,116,255,.25); }
 .pack.best { border-color: var(--gold); background: linear-gradient(180deg, rgba(48,38,20,.95), rgba(14,10,26,.95)); }
 .pack.best:hover { border-color: #ffd96a; box-shadow: 0 18px 44px rgba(0,0,0,.6), 0 0 30px rgba(232,194,74,.3); }
-.ribbon { position: absolute; top: 16px; right: -36px; transform: rotate(38deg); padding: 4px 42px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: #0b0814; background: linear-gradient(180deg, #c9a4ff, #a574ff); }
+.ribbon { position: absolute; top: 10px; right: -44px; transform: rotate(38deg); padding: 3px 46px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: #0b0814; background: linear-gradient(180deg, #c9a4ff, #a574ff); }
 .pack.best .ribbon { background: linear-gradient(180deg, #ffe08a, #e8c24a); }
 .pack-name { font-family: var(--display); font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
 .pack-credits { font-family: var(--display); font-size: 42px; font-weight: 700; color: var(--bright); line-height: 1; margin-top: 10px; text-shadow: 0 0 24px rgba(165,116,255,.5); }
