@@ -5,10 +5,9 @@ $key = trim((string)@file_get_contents(dirname(__DIR__, 2) . '/.vanguard/teamgam
 echo "php " . PHP_VERSION . " curl " . curl_version()['version'] . " keylen " . strlen($key) . "\n\n";
 $tests = [
   ['GET',  'https://teamgames.io/', null],
-  ['POST', 'https://teamgames.io/api/v2/client/global/products', '{}'],
-  ['POST', 'https://api.teamgames.io/api/v2/client/global/products', '{}'],
-  ['POST', 'https://api.teamgames.io/api/v4/store/transaction/update', '{"playerName":"Test","preview":true}'],
-  ['POST', 'https://teamgames.io/api/v2/client/global/checkout/complete', '{"username":"Test","cartItems":"[{\"id\":20713,\"quantity\":1}]"}'],
+  ['GET',  'https://vanguard.teamgames.io/store', null],
+  ['POST', 'https://vanguard.teamgames.io/api/v2/client/global/products', '{}'],
+  ['POST', 'https://api.teamgames.io/api/v2/client/global/checkout/complete', '{"username":"Test","cartItems":"[{\"id\":20713,\"quantity\":1}]"}'],
 ];
 foreach ($tests as [$m, $u, $b]) {
   $ch = curl_init($u);
@@ -18,6 +17,8 @@ foreach ($tests as [$m, $u, $b]) {
   if ($b !== null) curl_setopt($ch, CURLOPT_POSTFIELDS, $b);
   $r = curl_exec($ch);
   echo "$m $u\n  code=" . curl_getinfo($ch, CURLINFO_RESPONSE_CODE) . " err=" . curl_error($ch) . " ip=" . curl_getinfo($ch, CURLINFO_PRIMARY_IP) . "\n";
-  echo "  " . str_replace("\n", "\n  ", substr(preg_replace('/' . preg_quote($key, '/') . '/', 'KEY', (string)$r), 0, 700)) . "\n\n";
+  echo "  " . str_replace("\n", "\n  ", substr(preg_replace('/' . preg_quote($key, '/') . '/', 'KEY', preg_replace('/?
+(?=\S+: )/', "
+", (string)$r)), 0, 1400)) . "\n\n";
   curl_close($ch);
 }
