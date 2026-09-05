@@ -44,7 +44,7 @@ $body = json_encode(['username' => $user, 'cartItems' => json_encode([['id' => $
 $ch = curl_init('https://vanguard.teamgames.io/api/v2/client/global/checkout/complete');
 curl_setopt_array($ch, [
   CURLOPT_POST => true, CURLOPT_POSTFIELDS => $body, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 15,
-  CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Authorization: ' . base64_encode($key)],
+  CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Authorization: ' . base64_encode($key), 'x-api-key: ' . $key],
 ]);
 $res = curl_exec($ch); $http = curl_getinfo($ch, CURLINFO_RESPONSE_CODE); curl_close($ch);
 $j = is_string($res) ? json_decode($res, true) : null;
