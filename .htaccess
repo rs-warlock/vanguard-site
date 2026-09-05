@@ -16,7 +16,6 @@ RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # ---- store / vote live on TeamGames (they handle the checkout + toplists)
-Redirect 302 /store https://vanguard.teamgames.io/store
 Redirect 302 /vote https://vanguard.teamgames.io/vote
 Redirect 302 /hiscores https://vanguard.teamgames.io/hiscores
 
@@ -26,10 +25,13 @@ Redirect 302 /hiscores https://vanguard.teamgames.io/hiscores
 </FilesMatch>
 RedirectMatch 404 /\.git
 
-# ---- no scripts execute in this tree (static site)
+# ---- no scripts execute in this tree except the single checkout bridge
 <FilesMatch "\.(php|phtml|php[0-9]|cgi|pl|py|rb|asp|aspx|jsp)$">
   Require all denied
 </FilesMatch>
+<Files "checkout.php">
+  Require all granted
+</Files>
 
 # ---- security headers
 <IfModule mod_headers.c>
@@ -40,7 +42,7 @@ RedirectMatch 404 /\.git
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
   Header always set Cross-Origin-Opener-Policy "same-origin"
   Header always set Cross-Origin-Resource-Policy "same-origin"
-  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
   Header unset X-Powered-By
   # cache static assets a week, html briefly
   <FilesMatch "\.(png|jpg|jpeg|webp|gif|ico|css|woff2?)$">

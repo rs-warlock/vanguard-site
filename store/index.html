@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vanguard Store</title>
+  <meta property="og:title" content="Vanguard Store">
+  <meta property="og:image" content="https://vanguardrsps.org/assets/wordmark.png">
+  <meta name="theme-color" content="#06040c">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="stylesheet" href="/assets/style.css?v=3">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/assets/emblem.png" alt=""><span>Vanguard</span></a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a class="active" href="/store/">Store</a></li>
+      <li><a href="/vote">Vote</a></li>
+      <li><a class="play" href="/play/">Play Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:20px">
+  <div class="bg"></div>
+  <div class="wrap">
+    <img class="wordmark" src="/assets/wordmark.png" alt="Vanguard" style="max-width:min(420px,88%)">
+    <div class="sub" style="margin-top:18px">Store credits &middot; 1 credit = $1 in game</div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:10px">
+  <div class="wrap">
+    <div class="section-title">Choose a pack</div>
+    <form method="post" action="/store/checkout.php">
+    <div class="who">
+      <label for="who">Deliver to</label>
+      <input id="who" name="username" type="text" maxlength="12" pattern="[A-Za-z0-9 _-]{1,12}" placeholder="Your in-game name" autocomplete="username" required>
+      <span>Enter your exact character name. Every pack below delivers to it.</span>
+    </div>
+    <div class="packs">
+      <div class="pack">
+        <div class="pack-name">Recruit</div>
+        <div class="pack-credits">10</div>
+        <div class="pack-unit">credits</div>
+        <div class="pack-bonus muted">Base rate</div><div class="pack-price">$10</div>
+        <button class="btn primary" type="submit" name="pack" value="recruit">Buy</button>
+      </div>
+      <div class="pack">
+        <div class="pack-name">Vanguard</div>
+        <div class="pack-credits">27</div>
+        <div class="pack-unit">credits</div>
+        <div class="pack-bonus">+8% bonus</div><div class="pack-price">$25</div>
+        <button class="btn primary" type="submit" name="pack" value="vanguard">Buy</button>
+      </div>
+      <div class="pack">
+        <div class="pack-name">Champion</div>
+        <div class="pack-credits">57</div>
+        <div class="pack-unit">credits</div>
+        <div class="pack-bonus">+15% bonus</div><div class="pack-price">$50</div>
+        <button class="btn primary" type="submit" name="pack" value="champion">Buy</button>
+      </div>
+      <div class="pack best">
+        <div class="ribbon">Best value</div><div class="pack-name">Warlord</div>
+        <div class="pack-credits">120</div>
+        <div class="pack-unit">credits</div>
+        <div class="pack-bonus">+20% bonus</div><div class="pack-price">$100</div>
+        <button class="btn primary" type="submit" name="pack" value="warlord">Buy</button>
+      </div>
+      <div class="pack">
+        <div class="ribbon">Max bonus</div><div class="pack-name">Ascendant</div>
+        <div class="pack-credits">325</div>
+        <div class="pack-unit">credits</div>
+        <div class="pack-bonus">+30% bonus</div><div class="pack-price">$250</div>
+        <button class="btn primary" type="submit" name="pack" value="ascendant">Buy</button>
+      </div>
+    </div>
+    </form>
+    <p class="fine">Bigger packs carry a bonus. Checkout is handled by TeamGames (PayPal), and credits land on your account moments after payment clears. Every dollar also counts toward your donator rank.</p>
+  </div>
+</section>
+
+<footer>
+  <img src="/assets/emblem.png" alt="">
+  <div>&copy; Vanguard. Not affiliated with Jagex Ltd.</div>
+  <div><a href="/">Home</a> <a href="/vote">Vote</a> <a href="/play/">Play</a></div>
+</footer>
+
+</body>
+</html>
