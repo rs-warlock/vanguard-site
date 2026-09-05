@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/vangwjtq/public_html
+    - /bin/cp -R index.html 404.html robots.txt sitemap.xml .htaccess assets play $DEPLOYPATH/
